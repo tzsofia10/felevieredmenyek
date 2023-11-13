@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace felevieredmenyek
 {
@@ -8,7 +9,8 @@ namespace felevieredmenyek
     {
         public string TanuloNev { get; set; }
         public double OktatasiAzonosito { get; set; }
-        List<int> jegyek { get; set; }
+       public List<int> jegyek { get; set; }
+        public double Atlag => jegyek.Average();
 
 
 
@@ -18,6 +20,8 @@ namespace felevieredmenyek
             TanuloNev = adat[0];
             OktatasiAzonosito = Convert.ToDouble(adat[1]);
             jegyek = new List<int>();
+           
+
 
             for (int i = 2; i < adat.Length; i++)
             {
@@ -25,6 +29,8 @@ namespace felevieredmenyek
             }
 
         }
+        
+
         public override string ToString()
         {
             return $"Tanuló neve: {TanuloNev},Oktatási Azonosító: {OktatasiAzonosito}";
